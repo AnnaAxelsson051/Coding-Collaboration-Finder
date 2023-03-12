@@ -29,7 +29,7 @@ const[showModal,setShowModal] = useState(false)
                  showModal={showModal}
                  setIsSignUp={setIsSignUp}/>
         <div className="home">
-            <h1>Find your match</h1>
+            <h1 className="primary-title">Find your match</h1>
             <button
                 className="primary-button"
                 onClick={handleClick}>

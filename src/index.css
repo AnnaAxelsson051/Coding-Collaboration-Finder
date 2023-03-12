@@ -21,9 +21,20 @@ code {
 html, body {
     margin:0;
     padding:0;
+    text-align: center;
 }
 
-
+/*"Find your match"*/
+.primary-title{
+    font-size: 50px;
+    color: #f1e1bf;
+    color: #b9a273;
+    color: #f1e1bf;
+    color: white;
+    color:#a69064;
+    color: #604d26;
+    color: white;
+}
 
 .primary-button{
     color:#fff;
@@ -56,8 +67,7 @@ html, body {
     background-color: #9f895d;
     border: 2px solid #9f895d;
 }
-body{text-align: center;
-}
+
 
 /*********** Navbar **********/
 
@@ -108,15 +118,25 @@ nav .nav-button:disabled{
     rgba(0,0,0,0.65) 0%,
     rgba(0,0,0,0) 100%
     );*/
-    background: linear-gradient(to bottom, #a69064,#f1e1bf, #b9a273, #a69064, #8d784e);
-
+    background: linear-gradient(to bottom, #a69064,#f1e1bf, #b9a273,
+    #a69064, #8d784e), url('images/red-heart3.png');
+    background: linear-gradient(to bottom, rgba(166, 144, 100, 0.8), rgba(241, 225, 191, 0.78), rgba(185, 162, 115, 0.8),
+    rgba(166, 144, 100, 0.82), rgba(141, 120, 78, 0.81)), url('images/red-heart3.png');
+    background: linear-gradient(to bottom, #a69064,#f1e1bf, #b9a273,
+    #a69064, #8d784e), url('images/red-heart3.png');
+    background: linear-gradient(to bottom, #a69064,#f1e1bf, #b9a273,
+    #a69064, #8d784e);
 }
-
+.home{
+    margin-top:30vh;
+}
 /************ Home page  ***********/
 
 .auth-modal{
  postion: absolute;
-    top: 175px;
+    left:0;
+    right:0;
+    top: 50px;
     margin-left: auto;
     margin-right: auto;
     max-width: 360px;
