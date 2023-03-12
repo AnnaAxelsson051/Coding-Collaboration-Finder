@@ -21,7 +21,7 @@ const[showModal,setShowModal] = useState(false)
     return (
         /*passing authToken into the navbar*/
         <div className="overlay">
-            <Nav minimal={false} authToken={authToken}/>
+            <Nav minimal={false} authToken={authToken} setShowModal={setShowModal}/>
         <div className="home">
             <h1>Swipe Right</h1>
             <button className="primary-button" onClick={handleClick}>
