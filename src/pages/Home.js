@@ -23,7 +23,7 @@ const[showModal,setShowModal] = useState(false)
         <div className="overlay">
             <Nav minimal={false} authToken={authToken} setShowModal={setShowModal}/>
         <div className="home">
-            <h1>Swipe Right</h1>
+            <h1>Find your match</h1>
             <button className="primary-button" onClick={handleClick}>
                 {authToken ? 'Sign Out' : 'Create Account'}
             </button>
