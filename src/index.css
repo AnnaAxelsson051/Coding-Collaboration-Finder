@@ -23,6 +23,8 @@ html, body {
     padding:0;
 }
 
+
+
 .primary-button{
     color:#fff;
     font-size: 17px;
@@ -31,8 +33,6 @@ html, body {
     background: linear-gradient(to bottom, #f1e1bf, #b9a273, #a69064);
     padding:10px 28px;
     border-color: white;
-
-
 }
 
 .primary-button:hover{
@@ -40,6 +40,22 @@ html, body {
     background: linear-gradient(to bottom, #d2f4ea, #79dfc1, #20c997);
 }
 
+.secondary-button{
+    color:#f1e1bf;
+    background-color: #b6a177;
+    font-weight: 500;
+    font-size: 15px;
+    padding:12px 30px;
+    padding:6px 16px;
+    border-radius: 30px;
+    border: solid 2px #b6a177;
+    margin: 8px;
+
+}
+.secondary-button:hover {
+    background-color: #9f895d;
+    border: 2px solid #9f895d;
+}
 body{text-align: center;
 }
 
@@ -113,4 +129,16 @@ nav .nav-button:disabled{
 .auth-modal .close-icon{
     float:right;
 
+}
+
+.auth-modal form{
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-modal input[type=password],
+.auth-modal input[type=email]{
+    padding: 6px;
+    margin:7px;
+    font-size: 15px;
 }

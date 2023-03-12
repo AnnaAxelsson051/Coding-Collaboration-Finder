@@ -45,14 +45,19 @@ const AuthModal = ({setShowModal}) =>{
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <input
-                    type="password-check"
+                    type="password"
                     id="password-check"
                     name="password-check"
                     placeholder="confirm password"
                     required={true}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+                <input
+                 className="secondary-button" type="submit"/>
+                <p>{error}</p>
             </form>
+            <hr/>
+            <h2>Get the app</h2>
         </div>
     )
 }
