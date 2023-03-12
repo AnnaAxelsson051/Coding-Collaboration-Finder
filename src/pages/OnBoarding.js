@@ -1,13 +1,31 @@
 import {useState} from 'react'
 import Nav from '../components/Nav'
 
+/*Saving input as an object*/
 const OnBoarding = () => {
+    const[formData, setFormData] = useState({
+        user_id:'',
+        first_name:'',
+        dob_day:'',
+        dob_month:'',
+        dob_year:'',
+        show_gender:false,
+        gender_identity:'man',
+        gender_interest: 'woman',
+        email:'',
+        url:'',
+        about:'',
+        matches:[]
+    })
 
     const handleSubmit = () => {
         console.log('submitted')
     }
-    const handleChange = () => {
-        console.log('change')
+    const handleChange = (e) => {
+        console.log('e', e)
+        const value = e.target.value
+        const name = e.target.name
+console.log(value + name)
     }
     return (
         <>
