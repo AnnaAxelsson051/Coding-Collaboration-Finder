@@ -62,17 +62,47 @@ nav .logo-container .logo{
     width:100%;
 }
 
+nav .nav-button{
+    color: #f1e1bf;
+    background-color:#a69064;
+    font-size: 16px;
+    padding:10px 20px;
+    /*top botton, side side*/
+    padding:0px 10px;
+    border-radius: 10px;
+    border: none;
+    margin:10px;
+}
+
+
 /*********** Home page ******/
 
 .overlay{
     width:100vw;
     height: 100vw;
     position: fixed;
-    background: linear-gradient(
+    /*background: linear-gradient(
     to bottom,
     rgba(0,0,0,0.65) 0%,
     rgba(0,0,0,0) 100%
-    );
+    );*/
     background: linear-gradient(to bottom, #a69064,#f1e1bf, #b9a273, #a69064, #8d784e);
+
+}
+
+/************ Home page  ***********/
+
+.auth-modal{
+ postion: absolute;
+    top: 175px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 360px;
+    height: 600px;
+    background-color:white;
+    border-radius:10px;
+    padding: 40px;
+    cursor:pointer;
+
 
 }
