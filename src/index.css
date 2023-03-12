@@ -63,17 +63,23 @@ nav .logo-container .logo{
 }
 
 nav .nav-button{
-    color: #f1e1bf;
-    background-color:#a69064;
+    color: #f6e9ce;
+    /*background-color:#a69064;*/
+    background-image: linear-gradient(to bottom, #c1b193, #a69064, #937b4d);
     font-size: 16px;
     padding:10px 20px;
     /*top botton, side side*/
     padding:0px 10px;
     border-radius: 10px;
-    border: none;
+    /*border: none;*/
+    border:1px solid #d0bd95;
     margin:10px;
 }
 
+nav .nav-button:disabled{
+    color: #d0bd95;
+    background-color: #988053;
+}
 
 /*********** Home page ******/
 
