@@ -2,7 +2,7 @@
 button on hompage will decide if we show authmodal*/
 import { useState } from 'react'
 
-const AuthModal = ({setShowModal}) =>{
+const AuthModal = ({setShowModal, isSignUp}) =>{
     const[email, setEmail] = useState(null)
     const[password, setPassword] = useState(null)
     const[confirmPassword, setConfirmPassword] = useState(null)
@@ -10,7 +10,7 @@ const AuthModal = ({setShowModal}) =>{
 
     console.log(email, password, confirmPassword)
 
-    const isSignUp = true
+
     const handleClick = () =>{
         setShowModal(false)
         /*when x is clicked modal disappears*/
@@ -32,7 +32,7 @@ const AuthModal = ({setShowModal}) =>{
     return (
         <div className="auth-modal">
             <div className="close-icon" onClick={handleClick}>x</div>
-            <h2>{isSignUp ? 'CREATE ACCOUNT' : 'LOG IN'}</h2>
+            <h2>{isSignUp ? 'Create Account' : 'Log In'}</h2>
             <p>When choosing the Log In option you are agreeing to our conditions.
                 Read more about how we handle personal data in our Privacy and
                 Cookie policy section</p>
@@ -53,14 +53,14 @@ const AuthModal = ({setShowModal}) =>{
                     required={true}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <input
+                {isSignUp && <input
                     type="password"
                     id="password-check"
                     name="password-check"
                     placeholder="confirm password"
                     required={true}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                />}
                 <input
                  className="secondary-button" type="submit"/>
                 <p>{error}</p>

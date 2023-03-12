@@ -10,6 +10,7 @@ const Home = () => {
 const[showModal,setShowModal] = useState(false)
     /*use usestate to show modal, start with show modal = false
     * iw button is clicked state is changed with setShow*/
+    const[isSignUp, setIsSignUp] = useState(true)
 
     const authToken = false;
     /*we are logged in*/
@@ -17,19 +18,26 @@ const[showModal,setShowModal] = useState(false)
         console.log('clicked');
         setShowModal(true)
         /*when button is clicked modal is shown*/
+        setIsSignUp(true)
     }
     return (
         /*passing authToken into the navbar*/
         <div className="overlay">
-            <Nav minimal={false} authToken={authToken} setShowModal={setShowModal} showModal={showModal}/>
+            <Nav minimal={false}
+                 authToken={authToken}
+                 setShowModal={setShowModal}
+                 showModal={showModal}
+                 setIsSignUp={setIsSignUp}/>
         <div className="home">
             <h1>Find your match</h1>
-            <button className="primary-button" onClick={handleClick}>
+            <button
+                className="primary-button"
+                onClick={handleClick}>
                 {authToken ? 'Sign Out' : 'Create Account'}
             </button>
 
             {showModal && (
-            <AuthModal setShowModal={setShowModal}/>
+            <AuthModal setShowModal={setShowModal} isSignUp={isSignUp}/>
             )}
 
         </div>
