@@ -9,6 +9,8 @@ const AuthModal = ({setShowModal}) =>{
     const[error, setError] = useState(null)
 
     console.log(email, password, confirmPassword)
+
+    const isSignUp = true
     const handleClick = () =>{
         setShowModal(false)
         /*when x is clicked modal disappears*/
@@ -17,8 +19,15 @@ const AuthModal = ({setShowModal}) =>{
     /*prevenst page from refreshing*/
     const handleSubmit = (e) =>{
         e.preventDefault()
+        try {
+            if(isSignUp && (password !== confirmPassword)){
+                setError('The passwords that you have entered does not match')
+            }
+            console.log('make a postrequest to db')
+        }catch(error){
+            console.log(error)
+        }
     }
-    const isSignUp= true
 
     return (
         <div className="auth-modal">
