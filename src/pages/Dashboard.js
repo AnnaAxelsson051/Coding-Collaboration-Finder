@@ -28,8 +28,9 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
-<div>Chat Container</div>
+
             <ChatContainer/>
+
             <div className="swipe-container">
                 <div className="card-container">
                     {characters.map((character) =>

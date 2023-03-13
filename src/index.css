@@ -319,3 +319,43 @@ nav .nav-button:disabled{
 
 
 /********* Chat Container ******/
+
+.chat-container{
+    background-color: #f1eee8;
+    background-color: #fdfdfd;
+    box-shadow: rgba(0,0,0,0.05)0px 6px 24px 0px,
+    rgba(0,0,0,0.08) 0px 0px 0px 1px;
+    box-shadow: rgba(0,0,0,0.09)0px 6px 24px 0px,
+    rgba(0,0,0,0.08) 0px 0px 0px 1px;
+    text-align: left;
+    z-index: 1;
+}
+
+.chat-container .chat-container-header{
+    background: linear-gradient(to bottom, #f1e1bf, #b9a273, #a69064);
+    height:100px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-container .option{
+    border: none;
+    background-color: #fdfdfd;
+    border-bottom: 4px solid #b9a273;
+    font-size: 20px;
+    margin: 2px;
+    padding:10px;
+}
+
+.chat-container .option:disabled{
+    border-bottom: solid 4px #afaead;
+}
+
+.chat-container .profile{
+    padding:20px;
+    display:flex;
+    align-items: center;
+    color:#fdfdfd;
+}
+
