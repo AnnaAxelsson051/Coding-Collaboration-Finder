@@ -255,6 +255,9 @@ nav .nav-button:disabled{
 
 /***** Dashboard *******/
 
+.dashboard{
+    display:flex;
+}
 .swipe {
     position: absolute;
 }

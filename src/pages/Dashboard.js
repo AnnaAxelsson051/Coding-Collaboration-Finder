@@ -1,6 +1,7 @@
 /*What only logged in users see*/
 import TinderCard from 'react-tinder-card'
 import {useState} from 'react'
+import ChatContainer from '../components/ChatContainer'
 const Dashboard = () => {
     const characters =[
         {
@@ -31,11 +32,19 @@ const Dashboard = () => {
                 <div className="card-container">
                     {characters.map((character) =>
                         <TinderCard
-                            className='swipe' key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
-                            <div style={{ backgroundImage: 'url(' + character.url + ')' }} className='card'>
+                            className='swipe'
+                            key={character.name}
+                            onSwipe={(dir) => swiped(dir, character.name)}
+                            onCardLeftScreen={() => outOfFrame(character.name)}>
+                            <div style={{ backgroundImage: 'url(' + character.url + ')' }}
+                                 className='card'>
                                 <h3>{character.name}</h3>
                             </div>
-                        </TinderCard>)}
+                        </TinderCard>
+                    )}
+                    <div className="swipe-info">
+                        {lastDirection ? <p>You swiped {lastDirection}</p> : <p/>}
+                    </div>
                 </div>
             </div>
         </div>
