@@ -22,16 +22,17 @@ const OnBoarding = () => {
         console.log('submitted')
     }
     const handleChange = (e) => {
-        console.log('e', e)
-        const value = e.target.value
+        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
         const name = e.target.name
-console.log(value + name)
         setFormData((prevState) =>({
             ...prevState,
             [name] : value
    /*search for the input name and change its value*/
         }))
     }
+
+    console.log(formData)
+
     return (
         <>
             <Nav
@@ -97,7 +98,7 @@ console.log(value + name)
                                 name="gender_identity"
                                 value="man"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender_identity === 'man'}
                             />
                             <label htmlFor="man-gender-identity">Man</label>
                             <input
@@ -106,7 +107,7 @@ console.log(value + name)
                                 name="gender_identity"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender_identity === 'woman'}
                             />
                             <label htmlFor="woman-gender-identity">Woman</label>
                             <input
@@ -115,7 +116,7 @@ console.log(value + name)
                                 name="gender_identity"
                                 value="more"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender_identity === 'more'}
                             />
                             <label htmlFor="more-gender-identity">More</label>
                         </div>
@@ -126,7 +127,7 @@ console.log(value + name)
                             type="checkbox"
                             name="show_gender"
                             onChange={handleChange}
-                            checked={false}
+                            checked={formData.show_gender}
                         />
 
 
@@ -138,16 +139,17 @@ console.log(value + name)
                                 name="gender_interest"
                                 value="man"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender_interest === 'man'}
                             />
                             <label htmlFor="man-gender-interest">Man</label>
+
                             <input
                                 id="woman-gender-interest"
                                 type="radio"
                                 name="gender_interest"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender_interest === 'everyone'}
                             />
                             <label htmlFor="woman-gender-interest">Woman</label>
                             <input
@@ -156,7 +158,7 @@ console.log(value + name)
                                 name="gender_interest"
                                 value="everyone"
                                 onChange={handleChange}
-                                checked={false}
+                                checked={formData.gender_interest === 'more'}
                             />
                             <label htmlFor="more-gender-identity">Everyone</label>
                         </div>
