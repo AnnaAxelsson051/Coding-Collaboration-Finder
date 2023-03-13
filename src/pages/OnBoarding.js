@@ -26,6 +26,11 @@ const OnBoarding = () => {
         const value = e.target.value
         const name = e.target.name
 console.log(value + name)
+        setFormData((prevState) =>({
+            ...prevState,
+            [name] : value
+   /*search for the input name and change its value*/
+        }))
     }
     return (
         <>
@@ -46,7 +51,7 @@ console.log(value + name)
                             name="first_name"
                             placeholder="First Name"
                             required={true}
-                            value={""}
+                            value={formData.first_name}
                             onChange={handleChange}
 
                         />
@@ -59,7 +64,7 @@ console.log(value + name)
                                 name="dob_day"
                                 placeholder="DD"
                                 required={true}
-                                value={""}
+                                value={formData.dob_day}
                                 onChange={handleChange}
                             />
 
@@ -69,7 +74,7 @@ console.log(value + name)
                                 name="dob_month"
                                 placeholder="MM"
                                 required={true}
-                                value={""}
+                                value={formData.dob_month}
                                 onChange={handleChange}
                             />
 
@@ -79,7 +84,7 @@ console.log(value + name)
                                 name="dob_year"
                                 placeholder="YYYY"
                                 required={true}
-                                value={""}
+                                value={formData.dob_year}
                                 onChange={handleChange}
                             />
                         </div>
@@ -163,7 +168,7 @@ console.log(value + name)
                             name="about"
                             required={true}
                             placeholder="I like reading.."
-                            value={""}
+                            value={formData.about}
                             onChange={handleChange}
                         />
                         <input type="submit"/>
@@ -180,6 +185,7 @@ console.log(value + name)
                             required={true}
                         />
                         <div className="photo-container">
+                            <img src={formData.url} alt="profile photo preview" />
                         </div>
                     </section>
                 </form>
