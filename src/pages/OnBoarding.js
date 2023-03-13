@@ -149,18 +149,18 @@ const OnBoarding = () => {
                                 name="gender_interest"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === 'everyone'}
+                                checked={formData.gender_interest === 'woman'}
                             />
                             <label htmlFor="woman-gender-interest">Woman</label>
                             <input
-                                id="more-gender-interest"
+                                id="everyone-gender-interest"
                                 type="radio"
                                 name="gender_interest"
                                 value="everyone"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === 'more'}
+                                checked={formData.gender_interest === 'everyone'}
                             />
-                            <label htmlFor="more-gender-identity">Everyone</label>
+                            <label htmlFor="everyone-gender-interest">Everyone</label>
                         </div>
 
                         <label htmlFor="about">About Me</label>
