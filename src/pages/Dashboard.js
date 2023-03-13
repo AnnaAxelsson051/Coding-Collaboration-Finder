@@ -4,12 +4,12 @@ import {useState} from 'react'
 const Dashboard = () => {
     const characters =[
         {
-            name: 'Elrich',
-            url: ''
+            name: 'Person1',
+            url: 'https://i.pinimg.com/564x/2c/15/22/2c15222f332f689b4cf89dd886af7d1d.jpg'
         },
         {
-            name: 'hej',
-            url:''
+            name: 'Person2',
+            url:'https://i.pinimg.com/564x/36/04/36/3604360f00ce6e414251c37244823aa9.jpg'
         }
     ]
      /*const characters = db*/
