@@ -54,6 +54,12 @@ app.post('/signup', async (req,res) =>{
     }
 })
 
+app.post('/login', req, res) =>{
+    const client = new MongoClient(uri)
+    const{email,password} = req.body
+
+} )
+
 app.get('/users', async (req,res) =>{
     const client = new MongoClient(uri)
 
