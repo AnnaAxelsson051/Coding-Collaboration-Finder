@@ -1,19 +1,7 @@
-/*delete this to have all styling in the same file*/
 
-/*body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}*/
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Raleway:wght@100;200;300;400;500;600&display=swap');
+
+
 
 *{
     font-family: 'Raleway', sans-serif;
@@ -90,11 +78,9 @@ nav .logo-container .logo{
 
 nav .nav-button{
     color: #f6e9ce;
-    /*background-color:#a69064;*/
     background-image: linear-gradient(to bottom, #c1b193, #a69064, #937b4d);
     font-size: 16px;
     padding:10px 20px;
-    /*top botton, side side*/
     padding:0px 10px;
     border-radius: 10px;
     /*border: none;*/
@@ -129,11 +115,12 @@ nav .nav-button:disabled{
 }
 .home{
     margin-top:30vh;
+    margin-top:10vh;
 }
 /************ Home page  ***********/
 
 .auth-modal{
- postion: absolute;
+    postion: absolute;
     left:0;
     right:0;
     top: 50px;
@@ -198,7 +185,7 @@ nav .nav-button:disabled{
 .onboarding form input::-webkit-outer-spin-button,
 .onboarding form input::-webkit-inner-spin-button
 {
--webkit-appearance: none;
+    -webkit-appearance: none;
     margin:0;
 }
 
@@ -213,7 +200,7 @@ nav .nav-button:disabled{
 }
 
 .onboarding form .multiple-input-container input{
- margin-right:10px;
+    margin-right:10px;
 }
 
 .onboarding form .multiple-input-container label{
@@ -264,7 +251,7 @@ nav .nav-button:disabled{
 .dashboard .swipe-container {
     width: 70%;
     display:flex;
-   flex-direction:column;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
     height:100vh;
@@ -303,7 +290,7 @@ nav .nav-button:disabled{
 
 
 .card h3 {
-   margin-top:0;
+    margin-top:0;
     /* position: absolute;
     bottom: 0;
     margin:10px;

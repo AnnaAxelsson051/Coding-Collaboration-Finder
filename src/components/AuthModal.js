@@ -1,12 +1,16 @@
 /*To make modal show up button in navbar and
 button on hompage will decide if we show authmodal*/
 import { useState } from 'react'
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 const AuthModal = ({setShowModal, isSignUp}) =>{
     const[email, setEmail] = useState(null)
     const[password, setPassword] = useState(null)
     const[confirmPassword, setConfirmPassword] = useState(null)
     const[error, setError] = useState(null)
+
+    let navigate = useNavigate()
 
     console.log(email, password, confirmPassword)
 
@@ -17,13 +21,20 @@ const AuthModal = ({setShowModal, isSignUp}) =>{
     }
 
     /*prevenst page from refreshing*/
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
         try {
             if(isSignUp && (password !== confirmPassword)){
                 setError('The passwords that you have entered does not match')
+           return
             }
-            console.log('make a postrequest to db')
+
+            const response = await axios.post('http://localhost:8000/signup', {email, password})
+
+            const success = response.status === 201
+
+            if (success) navigate('/onboarding')
+
         }catch(error){
             console.log(error)
         }
