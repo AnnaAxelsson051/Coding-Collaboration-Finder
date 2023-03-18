@@ -88,7 +88,7 @@ app.post('/login', async( req, res) =>{
 /*populate data find it by user id*/
 app.get('/user', async (req,res) =>{
     const client = new MongoClient(uri)
-    const userId = req.params.userId
+    const userId = req.query.userId
 
     try{
         await client.connect()
