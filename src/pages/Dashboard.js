@@ -7,6 +7,8 @@ import {useCookies} from 'react-cookie'
 
 const Dashboard = () => {
     const[user, setUser] = useState(null)
+    /*const characters = db*/
+    const [lastDirection, setLastDirection] = useState()
     const [genderedUsers, setGenderedUsers] = useState(null)
     const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
@@ -40,8 +42,9 @@ const Dashboard = () => {
         getGenderedUsers()
     },[user, genderedUsers])
 
-    console.log('user',user)
+    console.log('user', user)
     console.log('gendered users', genderedUsers)
+    /*
 
     const characters =[
         {
@@ -52,9 +55,8 @@ const Dashboard = () => {
             name: 'Person2',
             url:'https://i.pinimg.com/564x/36/04/36/3604360f00ce6e414251c37244823aa9.jpg'
         }
-    ]
-     /*const characters = db*/
-     const[lastDirection, setLastDirection] = useState()
+    ]*/
+
 
     const swiped = (direction, nameToDelete) =>{
          console.log('removing: ' + nameToDelete)
@@ -72,16 +74,16 @@ const Dashboard = () => {
             <ChatContainer user={user}/>
             <div className="swipe-container">
                 <div className="card-container">
-                    {characters.map((character) =>
+                    {genderedUsers?.map((genderedUser) =>
                         <TinderCard
                             className='swipe'
-                            key={character.name}
-                            onSwipe={(dir) => swiped(dir, character.name)}
-                            onCardLeftScreen={() => outOfFrame(character.name)}>
+                            key={genderedUser.first_name}
+                            onSwipe={(dir) => swiped(dir, genderedUser.first_name)}
+                            onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
                             <div
-                                style={{ backgroundImage: 'url(' + character.url + ')' }}
+                                style={{ backgroundImage: 'url(' + genderedUser.url + ')' }}
                                  className='card'>
-                                <h3>{character.name}</h3>
+                                <h3>{genderedUser.first_name}</h3>
                             </div>
                         </TinderCard>
                     )}
