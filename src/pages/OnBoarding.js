@@ -1,13 +1,17 @@
 import {useState} from 'react'
 import Nav from '../components/Nav'
 import {useCookies} from 'react-cookie'
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 
 
 /*Saving input as an object*/
 const OnBoarding = () => {
+    /*delete email*/
     const[cookies, setCookie, removeCookie]= useCookies(['user'])
     const[formData, setFormData] = useState({
+       user_id: cookies.UserId,
         first_name:'',
         dob_day:'',
         dob_month:'',
@@ -15,13 +19,23 @@ const OnBoarding = () => {
         show_gender:false,
         gender_identity:'man',
         gender_interest: 'woman',
+       /* email: cookies.Email,*/
         url:'',
         about:'',
         matches:[]
     })
 
-    const handleSubmit = () => {
-        console.log('submitted')
+    let navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try{
+           const response = await axios.put('http://localhost:8000/user', {formData})
+            const success = response.status === 200
+            if (success) navigate('/dashboard')
+        }catch(err){
+            console.log(err)
+        }
     }
     const handleChange = (e) => {
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value

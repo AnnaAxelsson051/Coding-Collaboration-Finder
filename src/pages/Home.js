@@ -33,7 +33,7 @@ const[showModal,setShowModal] = useState(false)
             <button
                 className="primary-button"
                 onClick={handleClick}>
-                {authToken ? 'Sign Out' : 'Create Account'}
+                {authToken ? 'Signout' : 'Create Account'}
             </button>
 
             {showModal && (
