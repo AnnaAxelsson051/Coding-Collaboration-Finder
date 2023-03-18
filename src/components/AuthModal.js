@@ -44,6 +44,8 @@ const AuthModal = ({setShowModal, isSignUp}) =>{
             if (success && isSignUp) navigate('/onboarding')
             if (success && !isSignUp) navigate('/dashboard')
 
+            window.location.reload()   /*reload window makes sure authtoken gets red by pages*/
+
         }catch(error){
             console.log(error)
         }
