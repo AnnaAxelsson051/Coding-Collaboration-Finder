@@ -42,24 +42,40 @@ const Dashboard = () => {
         getGenderedUsers()
     },[user, genderedUsers])
 
-    console.log('user', user)
-    console.log('gendered users', genderedUsers)
+    console.log(genderedUsers)
+
     /*
-
-    const characters =[
-        {
-            name: 'Person1',
-            url: 'https://i.pinimg.com/564x/2c/15/22/2c15222f332f689b4cf89dd886af7d1d.jpg'
-        },
-        {
-            name: 'Person2',
-            url:'https://i.pinimg.com/564x/36/04/36/3604360f00ce6e414251c37244823aa9.jpg'
+    const updateMatches = async (matchedUserId => {
+        try {
+            await axios.put('http://localhost:8000/addmatch', {
+                userId,
+                matchedUserId
+            })
+            getUser()
+        }catch (error){
+            console.log(error)
         }
-    ]*/
+    }*/
+
+    const updateMatches = async (matchedUserId) => {
+        try {
+            await axios.put('http://localhost:8000/addmatch', {
+                userId,
+                matchedUserId
+            })
+            getUser()
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
-    const swiped = (direction, nameToDelete) =>{
-         console.log('removing: ' + nameToDelete)
+
+/*show only right-swiped users*/
+    const swiped = (direction, swipedUserId) =>{
+        if (direction ==='right'){
+            updateMatches(swipedUserId)
+        }
         setLastDirection(direction)
     }
 
@@ -78,7 +94,7 @@ const Dashboard = () => {
                         <TinderCard
                             className='swipe'
                             key={genderedUser.first_name}
-                            onSwipe={(dir) => swiped(dir, genderedUser.first_name)}
+                            onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
                             onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
                             <div
                                 style={{ backgroundImage: 'url(' + genderedUser.url + ')' }}
