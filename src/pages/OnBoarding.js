@@ -27,11 +27,13 @@ const OnBoarding = () => {
 
     let navigate = useNavigate()
 
+    /*Sending over the data*/
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault()     /*prevent form from reloading*/
         try{
            const response = await axios.put('http://localhost:8000/user', {formData})
             const success = response.status === 200
+            /*if success we navigate to dashboard*/
             if (success) navigate('/dashboard')
         }catch(err){
             console.log(err)
