@@ -103,16 +103,19 @@ app.get('/user', async (req,res) =>{
     }
 })
 
-
-app.get('/users', async (req,res) =>{
+/*filtering by gender*/
+app.get('/gendered-users', async (req,res) =>{
     const client = new MongoClient(uri)
+    const gender = req.query.gender
 
     try{
         await client.connect()
         const database = client.db('app-data')
         const users = database.collection('users')
-        const returnedUsers = await users.find().toArray()
-        res.send(returnedUsers)
+        const query = {gender_identity: {$eq : gender}}
+        const foundUsers = await users.find(query).toArray()
+
+        res.send(foundUsers)
     }finally{
         await client.close()
     }
