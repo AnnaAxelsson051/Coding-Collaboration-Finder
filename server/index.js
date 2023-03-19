@@ -103,7 +103,7 @@ app.get('/user', async (req,res) =>{
     }
 })
 
-/*filtering by gender*/
+/*filtering users*/
 app.get('/gendered-users', async (req,res) =>{
     const client = new MongoClient(uri)
     const gender = req.query.gender
@@ -166,7 +166,7 @@ app.put('/addmatch', async (req,res) => {
         const database = client.db('app-data')
         const users = database.collection('users')
 
-        /*update matches array*/
+        /*update signed in user matches array by pushing in the object*/
         const query = { user_id: userId}
         const updateDocument = {
             $push: {matches: {user_id: matchedUserId}},

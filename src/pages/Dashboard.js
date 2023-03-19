@@ -51,7 +51,7 @@ const Dashboard = () => {
                 userId,
                 matchedUserId
             })
-            getUser()
+            getUser()  /*het user data again*/
         } catch (error) {
             console.log(error)
         }
@@ -71,8 +71,16 @@ const Dashboard = () => {
          console.log(name + ' left the screen')
     }
 
-    return (
-<>
+    /*add users own user id to matches bc dont want it to show up*/
+    const matchedUserIds = user?.matches.map(({user_id}) => user_id).concat(userId)
+
+    /*if id is not included in matches we return it */
+    const filteredGenderedUsers = genderedUsers?.filter(
+        genderedUser => !matchedUserIds.includes(genderedUser.user_id)
+    )
+
+
+    return (<>
 { user &&
         <div className="dashboard">
             <ChatContainer user={user}/>
@@ -81,7 +89,7 @@ const Dashboard = () => {
                     {genderedUsers?.map((genderedUser) =>
                         <TinderCard
                             className='swipe'
-                            key={genderedUser.first_name}
+                            key={filteredGenderedUsers.first_name}
                             onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
                             onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
                             <div
