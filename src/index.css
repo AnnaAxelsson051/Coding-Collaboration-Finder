@@ -240,7 +240,7 @@ nav .nav-button:disabled{
 }
 
 .onboarding form input[type="submit"]:hover{
-    background-color: red;
+    background-color: #b9a273;
 }
 
 .onboarding form input[type="submit"]:active{
@@ -385,7 +385,7 @@ nav .nav-button:disabled{
 
 /******** Chat display ******/
 
-.chat-display{
+.chat-display, .matches-display{
     padding: 20px;
     height:60vh;
     overflow-y:auto;
