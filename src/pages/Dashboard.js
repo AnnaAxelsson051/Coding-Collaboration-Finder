@@ -40,9 +40,7 @@ const Dashboard = () => {
     useEffect(() => {
         getUser()
         getGenderedUsers()
-    },[user, genderedUsers])
-
-    console.log(genderedUsers)
+    },[])
 
 
     const updateMatches = async (matchedUserId) => {
@@ -86,10 +84,10 @@ const Dashboard = () => {
             <ChatContainer user={user}/>
             <div className="swipe-container">
                 <div className="card-container">
-                    {genderedUsers?.map((genderedUser) =>
+                    {filteredGenderedUsers?.map((genderedUser) =>
                         <TinderCard
                             className='swipe'
-                            key={filteredGenderedUsers.first_name}
+                            key={genderedUser.user_id}
                             onSwipe={(dir) => swiped(dir, genderedUser.user_id)}
                             onCardLeftScreen={() => outOfFrame(genderedUser.first_name)}>
                             <div

@@ -25,9 +25,9 @@ const MatchesDisplay = ({matches, setClickedUser}) =>{
 
     return (
         <div className="matches-display">
-            {matchedProfiles?.map((match, _index) => (
+            {matchedProfiles?.map((match) => (
                 <div
-                    key={{_index}} className="match-card" onClick={() => setClickedUser(match)}>
+                    key={match.user_id} className="match-card" onClick={() => setClickedUser(match)}>
                     <div className="img-container">
                         <img src={match?.url} alt={match?.first_name + " profile"} />
                     </div>
