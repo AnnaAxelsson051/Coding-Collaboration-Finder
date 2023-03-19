@@ -29,7 +29,8 @@ const[showModal,setShowModal] = useState(false)
                  showModal={showModal}
                  setIsSignUp={setIsSignUp}/>
         <div className="home">
-            <h1 className="primary-title">Find your match</h1>
+            <h1 className="primary-title">Find Your Next Collaboration</h1>
+            <h3>We bring great teams and individuals together</h3>
             <button
                 className="primary-button"
                 onClick={handleClick}>

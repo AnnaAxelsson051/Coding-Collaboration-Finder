@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [genderedUsers, setGenderedUsers] = useState(null)
     const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
-    /*userId goes into cookies and gets user id*/
+    /*userId goes into cookies and gets userr id*/
     const userId = cookies.UserId
     const getUser = async () => {
         try {
@@ -44,18 +44,6 @@ const Dashboard = () => {
 
     console.log(genderedUsers)
 
-    /*
-    const updateMatches = async (matchedUserId => {
-        try {
-            await axios.put('http://localhost:8000/addmatch', {
-                userId,
-                matchedUserId
-            })
-            getUser()
-        }catch (error){
-            console.log(error)
-        }
-    }*/
 
     const updateMatches = async (matchedUserId) => {
         try {
@@ -100,6 +88,7 @@ const Dashboard = () => {
                                 style={{ backgroundImage: 'url(' + genderedUser.url + ')' }}
                                  className='card'>
                                 <h3>{genderedUser.first_name}</h3>
+                                <h3>Project name</h3>
                             </div>
                         </TinderCard>
                     )}
