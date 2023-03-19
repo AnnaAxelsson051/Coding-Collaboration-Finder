@@ -5,6 +5,7 @@ import {useState} from 'react'
 
 /*to make user name appear*/
 /*save clicked user to here*/
+
 const ChatContainer = ({user}) =>{
     const [clickedUser, setClickedUser] = useState(null)
     /*to regulate what buttons to appear*/
@@ -12,15 +13,16 @@ const ChatContainer = ({user}) =>{
         <div className="chat-container">
             <ChatHeader user={user}/>
         <div>
-            <button className="option">Matches</button>
+            <button className="option" onClick={() => setClickedUser(null)}>Matches</button>
             <button className="option" disabled={!clickedUser}>Chat</button>
         </div>
 
-            <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser}/>
+            {!clickedUser && <MatchesDisplay matches={user.matches} setClickedUser={setClickedUser}/>}
 
-            <ChatDisplay/>
+            {clickedUser &&<ChatDisplay/>}
         </div>
     )
 }
+/*if there is a clicked user - show the chatdisplay*/
 
 export default ChatContainer
