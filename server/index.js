@@ -127,7 +127,6 @@ app.get('/users', async (req, res) => {
             ]
 
         const foundUsers = await users.aggregate(pipeline).toArray()
-
         res.json(foundUsers)
 
     } finally {
@@ -214,7 +213,6 @@ app.put('/addmatch', async (req,res) => {
 app.get('/messages', async (req, res) => {
     const client = new MongoClient(uri)
     const {userId, correspondingUserId } = req.query
-    console.log(userId, correspondingUserId)
     try {
         await client.connect()
         const database = client.db('app-data')

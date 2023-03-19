@@ -68,7 +68,11 @@ const decendingOrderMessages = messages?.sort((a,b) => a.timestamp.localeCompare
     return (
         <>
             <Chat decendingOrderMessages={decendingOrderMessages}/>
-            <ChatInput/>
+            <ChatInput
+            user={user}
+            clickedUser={clickedUser}
+            getUsersMessages={getUsersMessages}
+            getClickedUsersMessages={getClickedUsersMessages}/>
         </>
 
     )
