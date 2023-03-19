@@ -39,9 +39,13 @@ const Dashboard = () => {
                             /*is called each time user changes*/
     useEffect(() => {
         getUser()
-        getGenderedUsers()
     },[])
 
+    useEffect(() => {
+        if (user) {
+            getGenderedUsers()
+        }
+    },[user])
 
     const updateMatches = async (matchedUserId) => {
         try {
