@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Raleway:wght@100;200;300;400;500;600&display=swap');
 
 
-
 *{
     font-family: 'Raleway', sans-serif;
 }
@@ -463,3 +462,4 @@ nav .nav-button:disabled{
     display: flex;
     flex-direction: column;
 }*/
+
