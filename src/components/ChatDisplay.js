@@ -42,6 +42,7 @@ getClickedUsersMessages()
 
     const messages = []
 
+    //Messages with pic and timestamp
     usersMessages?.forEach(message => {
         const formattedMessage = {}
         formattedMessage['name'] = user?.first_name
@@ -51,14 +52,22 @@ getClickedUsersMessages()
         messages.push(formattedMessage)
     })
 
-    console.log('userMessage', usersMessages)
-    console.log('formattedMessage', messages)
+    //Messages with pic and timestamp
+    clickedUsersMessages?.forEach(message => {
+        const formattedMessage = {}
+        formattedMessage['name'] = clickedUser?.first_name
+        formattedMessage['img'] = clickedUser?.url
+        formattedMessage['message'] = message.message
+        formattedMessage['timestamp'] = message.timestamp
+        messages.push(formattedMessage)
+    })
 
-
+    //sorting messages
+const decendingOrderMessages = messages?.sort((a,b) => a.timestamp.localeCompare(b.timestamp))
 
     return (
         <>
-            <Chat/>
+            <Chat decendingOrderMessages={decendingOrderMessages}/>
             <ChatInput/>
         </>
 
