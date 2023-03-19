@@ -210,7 +210,26 @@ app.put('/addmatch', async (req,res) => {
     }
 })
 
+//Go into collection and look for messages
+app.get('/messages', async (req, res) => {
+    const client = new MongoClient(uri)
+    const {userId, correspondingUserId } = req.query
+    console.log(userId, correspondingUserId)
+    try {
+        await client.connect()
+        const database = client.db('app-data')
+        const messages = database.collection('messages')
 
+        const query = {
+            from_userId: userId, to_userId: correspondingUserId
+        }
+        const foundMessages = await messages.find(query).toArray()
+        res.send(foundMessages)
+    }finally{
+        await client.close()
+
+    }
+})
 
 
 
