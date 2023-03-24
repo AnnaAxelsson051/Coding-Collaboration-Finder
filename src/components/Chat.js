@@ -1,6 +1,4 @@
 
-
-
 const Chat = ({descendingOrderMessages}) => {
     return (
         <>

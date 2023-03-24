@@ -1,80 +1,71 @@
 import Chat from './Chat'
-import ChatInput from "./ChatInput"
+import ChatInput from './ChatInput'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import {useState, useEffect} from "react"
 
-const ChatDisplay = ({user, clickedUser}) => {
+
+const ChatDisplay = ({ user , clickedUser }) => {
     const userId = user?.user_id
     const clickedUserId = clickedUser?.user_id
     const [usersMessages, setUsersMessages] = useState(null)
     const [clickedUsersMessages, setClickedUsersMessages] = useState(null)
 
-    const getUsersMessages = async (senderId, recipientId) => {
-        try{
-        const response = await axios.get('http://localhost:8000/messages',{
-            params: {userId: userId, correspondingUserId: clickedUserId }
-        })
-
-    /*look for anything to and from the one clicked on*/
-    setUsersMessages(response.data)
-    } catch(error) {
-    console.log(error)
-}
-}
-
-    const getClickedUsersMessages = async (senderId, recipientId) => {
-        try{
-            const response = await axios.get('http://localhost:8000/messages',{
-                params: {userId: clickedUserId, correspondingUserId: userId }
+    const getUsersMessages = async () => {
+        try {
+            const response = await axios.get('http://localhost:8000/messages', {
+                params: { userId: userId, correspondingUserId: clickedUserId}
             })
-
-            /*look for anything to and from the one clicked on*/
-            setClickedUsersMessages(response.data)
-        } catch(error) {
+            setUsersMessages(response.data)
+        } catch (error) {
             console.log(error)
         }
     }
 
-useEffect(() => {
-getUsersMessages()
-getClickedUsersMessages()
-},[])
+    const getClickedUsersMessages = async () => {
+        try {
+            const response = await axios.get('http://localhost:8000/messages', {
+                params: { userId: clickedUserId , correspondingUserId: userId}
+            })
+            setClickedUsersMessages(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        getUsersMessages()
+        getClickedUsersMessages()
+    }, [])
 
     const messages = []
 
-    //Messages with pic and timestamp
     usersMessages?.forEach(message => {
         const formattedMessage = {}
-        formattedMessage['name'] = user?.first_name
+        formattedMessage['name'] = user?.project_name  //was first
         formattedMessage['img'] = user?.url
         formattedMessage['message'] = message.message
         formattedMessage['timestamp'] = message.timestamp
         messages.push(formattedMessage)
     })
 
-    //Messages with pic and timestamp
     clickedUsersMessages?.forEach(message => {
         const formattedMessage = {}
-        formattedMessage['name'] = clickedUser?.first_name
+        formattedMessage['name'] = clickedUser?.project_name //was first
         formattedMessage['img'] = clickedUser?.url
         formattedMessage['message'] = message.message
         formattedMessage['timestamp'] = message.timestamp
         messages.push(formattedMessage)
     })
 
-    //sorting messages
-const decendingOrderMessages = messages?.sort((a,b) => a.timestamp.localeCompare(b.timestamp))
+    const descendingOrderMessages = messages?.sort((a,b) => a.timestamp.localeCompare(b.timestamp))
 
     return (
         <>
-            <Chat decendingOrderMessages={decendingOrderMessages}/>
+            <Chat descendingOrderMessages={descendingOrderMessages}/>
             <ChatInput
-            user={user}
-            clickedUser={clickedUser}
-            getUsersMessages={getUsersMessages}
-            getClickedUsersMessages={getClickedUsersMessages}/>
+                user={user}
+                clickedUser={clickedUser} getUserMessages={getUsersMessages} getClickedUsersMessages={getClickedUsersMessages}/>
         </>
-
     )
 }
 

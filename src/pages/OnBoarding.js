@@ -1,51 +1,50 @@
-import {useState} from 'react'
 import Nav from '../components/Nav'
+import {useState} from 'react'
 import {useCookies} from 'react-cookie'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 
-
-
-/*Saving input as an object*/
 const OnBoarding = () => {
-    /*delete email*/
-    const[cookies, setCookie, removeCookie]= useCookies(['user'])
-    const[formData, setFormData] = useState({
-       user_id: cookies.UserId,
-        first_name:'',
-        dob_day:'',
-        dob_month:'',
-        dob_year:'',
-        show_gender:false,
-        gender_identity:'man',
-        gender_interest: 'woman',
-       /* email: cookies.Email,*/
-        url:'',
-        about:'',
-        matches:[]
+    const [cookies, setCookie, removeCookie] = useCookies(null)
+    const [formData, setFormData] = useState({
+        user_id: cookies.UserId,
+        first_name: "",
+        dob_day: "",
+        dob_month: "",
+        dob_year: "",
+        show_gender: false,
+        gender_identity: "man",
+        gender_interest: "woman",
+        url: "",
+        about: "",
+        matches: []
+
     })
 
     let navigate = useNavigate()
 
-    /*Sending over the data*/
     const handleSubmit = async (e) => {
-        e.preventDefault()     /*prevent form from reloading*/
-        try{
-           const response = await axios.put('http://localhost:8000/user', {formData})
+        console.log('submitted')
+        e.preventDefault()
+        try {
+            const response = await axios.put('http://localhost:8000/user', {formData})
+            console.log(response)
             const success = response.status === 200
-            /*if success we navigate to dashboard*/
             if (success) navigate('/dashboard')
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
+
     }
+
     const handleChange = (e) => {
-        const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value
+        console.log('e', e)
+        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value
         const name = e.target.name
-        setFormData((prevState) =>({
+
+        setFormData((prevState) => ({
             ...prevState,
-            [name] : value
-   /*search for the input name and change its value*/
+            [name]: value
         }))
     }
 
@@ -57,56 +56,58 @@ const OnBoarding = () => {
                 }}
                 showModal={false}
             />
+
             <div className="onboarding">
-                <h2>Create Account</h2>
+                <h2>CREATE ACCOUNT</h2>
+
                 <form onSubmit={handleSubmit}>
                     <section>
-                        <label htmlFor="first_name">First Name</label>
+                        <label htmlFor="project_name">Project name</label>
                         <input
-                            id="first-name"
-                            type="text"
-                            name="first_name"
-                            placeholder="First Name"
+                            id="project_name"
+                            type='text'
+                            name="project_name"
+                            placeholder="Project Name"
                             required={true}
-                            value={formData.first_name}
+                            value={formData.project_name}
                             onChange={handleChange}
-
                         />
+                        {/*was first*/}
 
-                        <label>Birthday</label>
+                        <label>Project start date</label>
                         <div className="multiple-input-container">
                             <input
-                                id="dob_day"
+                                id="start_day"
                                 type="number"
-                                name="dob_day"
+                                name="start_day"
                                 placeholder="DD"
                                 required={true}
-                                value={formData.dob_day}
+                                value={formData.start_day}
                                 onChange={handleChange}
                             />
 
                             <input
-                                id="dob_month"
+                                id="start_month"
                                 type="number"
-                                name="dob_month"
+                                name="start_month"
                                 placeholder="MM"
                                 required={true}
-                                value={formData.dob_month}
+                                value={formData.start_month}
                                 onChange={handleChange}
                             />
 
                             <input
-                                id="dob_year"
+                                id="start_year"
                                 type="number"
-                                name="dob_year"
+                                name="start_year"
                                 placeholder="YYYY"
                                 required={true}
-                                value={formData.dob_year}
+                                value={formData.start_year}
                                 onChange={handleChange}
                             />
                         </div>
 
-                        <label>Gender</label>
+                        <label>My gender</label>
                         <div className="multiple-input-container">
                             <input
                                 id="man-gender-identity"
@@ -114,7 +115,7 @@ const OnBoarding = () => {
                                 name="gender_identity"
                                 value="man"
                                 onChange={handleChange}
-                                checked={formData.gender_identity === 'man'}
+                                checked={formData.gender_identity === "man"}
                             />
                             <label htmlFor="man-gender-identity">Man</label>
                             <input
@@ -123,7 +124,7 @@ const OnBoarding = () => {
                                 name="gender_identity"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={formData.gender_identity === 'woman'}
+                                checked={formData.gender_identity === "woman"}
                             />
                             <label htmlFor="woman-gender-identity">Woman</label>
                             <input
@@ -132,22 +133,13 @@ const OnBoarding = () => {
                                 name="gender_identity"
                                 value="more"
                                 onChange={handleChange}
-                                checked={formData.gender_identity === 'more'}
+                                checked={formData.gender_identity === "more"}
                             />
                             <label htmlFor="more-gender-identity">More</label>
                         </div>
 
-                        <label htmlFor="show-gender">Show my gender on profile</label>
-                        <input
-                            id="show-gender"
-                            type="checkbox"
-                            name="show_gender"
-                            onChange={handleChange}
-                            checked={formData.show_gender}
-                        />
+                        <label>Do you prefer collaborators of a specific gender?</label>
 
-
-                        <label>Show me</label>
                         <div className="multiple-input-container">
                             <input
                                 id="man-gender-interest"
@@ -155,46 +147,48 @@ const OnBoarding = () => {
                                 name="gender_interest"
                                 value="man"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === 'man'}
+                                checked={formData.gender_interest === "man"}
                             />
-                            <label htmlFor="man-gender-interest">Man</label>
-
+                            <label htmlFor="man-gender-interest">Men</label>
                             <input
                                 id="woman-gender-interest"
                                 type="radio"
                                 name="gender_interest"
                                 value="woman"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === 'woman'}
+                                checked={formData.gender_interest === "woman"}
                             />
-                            <label htmlFor="woman-gender-interest">Woman</label>
+                            <label htmlFor="woman-gender-interest">Women</label>
                             <input
                                 id="everyone-gender-interest"
                                 type="radio"
                                 name="gender_interest"
                                 value="everyone"
                                 onChange={handleChange}
-                                checked={formData.gender_interest === 'everyone'}
+                                checked={formData.gender_interest === "everyone"}
                             />
-                            <label htmlFor="everyone-gender-interest">Everyone</label>
+                            <label htmlFor="everyone-gender-interest">No, show me everyone</label>
+
                         </div>
 
-                        <label htmlFor="about">About Me</label>
+                        <label htmlFor="about">Project presentation</label>
                         <input
                             id="about"
                             type="text"
                             name="about"
                             required={true}
-                            placeholder="I like reading.."
+                            placeholder="This is an AI app I'm building..."
                             value={formData.about}
                             onChange={handleChange}
                         />
+
                         <input type="submit"/>
                     </section>
 
-
                     <section>
-                        <label htmlFor="url">Profile Profile</label>
+
+                        <label htmlFor="url">Project Photo</label>
+                        <p>Add a photo that illustrates the type of project you are looking for collaborators on.</p>
                         <input
                             type="url"
                             name="url"
@@ -203,13 +197,15 @@ const OnBoarding = () => {
                             required={true}
                         />
                         <div className="photo-container">
-                            {formData.url && <img src={formData.url} alt="profile photo preview" />}
+                            {formData.url && <img src={formData.url} alt="profile pic preview"/>}
                         </div>
+
+
                     </section>
+
                 </form>
             </div>
         </>
-
     )
 }
 export default OnBoarding
