@@ -18,4 +18,4 @@ This app allows individuals or teams to create account or log in and search for 
 
 ---
 
-![collab](https://github.com/AnnaAxelsson051/Movie-System/assets/103879144/efcb563c-250b-4b1d-983d-2cd16715b4b8)
+![collab](https://github.com/AnnaAxelsson051/Meeting-App-For-Coding-Collaborations/assets/103879144/9718b840-2713-4f10-95df-8ff3dc3e1f78)
