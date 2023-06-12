@@ -12,6 +12,8 @@ This app allows individuals or teams to create account or log in and search for 
 
 - React 
 - MongoDB
+- React Router
+- Axios
 - Authentication
 - Password encryption
 - CSS
