@@ -1,4 +1,4 @@
-# MEETING APP FOR CODING COLLABORATIONS
+# MEETING APP FOR COLLABORATIONS
 
 ---
 
@@ -19,5 +19,6 @@ This app allows individuals or teams to create account or log in and search for 
 - CSS
 
 ---
+## User Interface
 
 ![collab](https://github.com/AnnaAxelsson051/Meeting-App-For-Coding-Collaborations/assets/103879144/9718b840-2713-4f10-95df-8ff3dc3e1f78)
