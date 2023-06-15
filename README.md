@@ -1,5 +1,8 @@
 # MEETING APP FOR COLLABORATIONS
+---
+## User Interface
 
+![collab](https://github.com/AnnaAxelsson051/Meeting-App-For-Coding-Collaborations/assets/103879144/9718b840-2713-4f10-95df-8ff3dc3e1f78)
 ---
 
 ## Description 
@@ -19,7 +22,4 @@ This app enables individuals and teams to create accounts or log in and search f
 - Cookie storeage
 - CSS
 
----
-## User Interface
 
-![collab](https://github.com/AnnaAxelsson051/Meeting-App-For-Coding-Collaborations/assets/103879144/9718b840-2713-4f10-95df-8ff3dc3e1f78)
