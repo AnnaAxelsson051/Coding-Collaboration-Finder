@@ -1,4 +1,4 @@
-# Meeting App for Coding Collaborations
+# Collab' - Coding Collaboration Finder
 
 ## User Interface
 
@@ -8,7 +8,7 @@
 
 ## Description 
 
-This application enables individuals and teams to create accounts or log in and search for new people to collaborate on coding projects with. Members fill out a form with name, working name, description and image of a project they are building or planning on building - or a project they would like to collaborate on. Members can swipe / browse amongst other member profiles and start chats if there is a mutual project interest. For this project MongoDB is used for data storeage and user passwords are encrypted. Cookies were added to simplify application useage / login for the users.
+This platform allows individuals and teams to register, log in, and explore potential coding collaborators. Users provide project details such as name/working title, description, and an image for ongoing or planned projects they wish to build or collaborate on. Members can easily browse through profiles, initiating chats when mutual project interests align. Leveraging MongoDB for data storage and encrypted user passwords, the application enhances security and utilizes cookies to streamline user login and usage.
 
 ---
 
