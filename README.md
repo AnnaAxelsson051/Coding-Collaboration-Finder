@@ -12,7 +12,7 @@ This platform allows individuals and teams to register, log in, and explore pote
 
 ---
 
-## Technologies used:
+## Technologies used
 
 - React 
 - MongoDB
